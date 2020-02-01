@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 1
-  lastUpdatedAtString: 2020-02-01T10:34:44.729-06:00
-  initializedAtString: 2020-02-01T10:28:42.126-06:00
+  lastUpdatedAtString: 2020-02-01T10:57:24.079-06:00
+  initializedAtString: 2020-02-01T10:57:24.079-06:00
   currentGitRemote:
     name: origin
-    url: https://github.com/Mec4no/GGJ2020.git
+    url: https://github.com/LoboAnimae/GGJ20.git
     login: 
     user: 
     host: 
@@ -30,9 +30,9 @@ MonoBehaviour:
     name: master
     remote:
       name: origin
-      url: https://github.com/Mec4no/GGJ2020.git
+      url: https://github.com/LoboAnimae/GGJ20.git
     trackingBranch: master
   currentConfigRemote:
     name: origin
-    url: https://github.com/Mec4no/GGJ2020.git
+    url: https://github.com/LoboAnimae/GGJ20.git
   currentHead: 
