@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class player  : MonoBehaviour
 {
+    public HealtPlayer healtPlayer;
     public Animator animator;  
     public Rigidbody2D rb;
     public float maxSpeed = 5f;
@@ -12,6 +13,7 @@ public class player  : MonoBehaviour
     public bool has = false;
 
     public GameObject star;
+    public bool death = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +27,21 @@ public class player  : MonoBehaviour
     }
     
 
+        healtPlayer = FindObjectOfType<HealtPlayer>();
+        rb = GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(0.0f, 0.0f);  
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(healtPlayer.playerHealth <= 0){
+            death = true;
+            animator.SetBool("Death", death);
+            Destroy(gameObject);
+
+        }
+
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
             direction = 1;
             animator.SetInteger("Direction", direction);
