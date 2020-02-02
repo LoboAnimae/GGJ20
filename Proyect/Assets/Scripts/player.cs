@@ -55,15 +55,18 @@ public class player  : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         Debug.Log("Collided");
-        if(other.collider.gameObject.tag == "Star" && (has = false)){
+        if(other.collider.gameObject.tag == "Star" && (has == false)){
+            Debug.Log("First true");
             has = true;
             animator.SetBool("has_star", has);
+            Destroy(other.collider.gameObject, 0.0f);
         }
-        if(other.collider.gameObject.tag == "Star_obj" && (has = true)){
+        if(other.collider.gameObject.tag == "Star_obj" && (has == true)){
+            Debug.Log("Second false");
             has = false;
             animator.SetBool("has_star", has);
         }
-        Destroy(other.collider.gameObject, 0.0f);
+        
         
         
     }
