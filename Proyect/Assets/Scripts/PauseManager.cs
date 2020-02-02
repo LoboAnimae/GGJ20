@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class PauseManager : MonoBehaviour
 {
     public static PauseManager instance;
+    public Animator pp;
 
     public GameObject pausePanel;
     private bool enpausa;
@@ -18,9 +20,9 @@ public class PauseManager : MonoBehaviour
       }
     }
 
-    void Start()
-    {
+    void Start() {
       pausePanel.SetActive(false);
+
       enpausa = false;
     }
 
@@ -30,10 +32,16 @@ public class PauseManager : MonoBehaviour
       if(Input.GetKeyDown(KeyCode.Escape)) {
         if(enpausa == false) {
           pausePanel.SetActive(true);
+          bool cond = true;
+          pp.SetBool("Pauser", cond);
+          //Time.timeScale = 1;
           enpausa = true;
         }
         else if(enpausa == true) {
           pausePanel.SetActive(false);
+          bool cond = false;
+          pp.SetBool("Pauser", cond);
+          //Time.timeScale = 1;
           enpausa = false;
         }
       }
@@ -41,6 +49,9 @@ public class PauseManager : MonoBehaviour
 
     public void resumeSelected() {
       pausePanel.SetActive(false);
+      bool cond = false;
+      pp.SetBool("Pauser", cond);
+      //Time.timeScale = 1;
       enpausa = false;
     }
 
