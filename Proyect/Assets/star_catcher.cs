@@ -42,11 +42,12 @@ public class star_catcher : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log(other.gameObject.tag + " has collided with" + gameObject.tag);
-        if(other.gameObject.tag == "Player" /*&& (pp.has == true)*/) {
+        if(other.gameObject.tag == "Player" && (GameManager.instance.play.has == true)) {
             
             Instantiate(star_completed, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity);
             //Destroy(gameObject);
             cc.enabled = false;
+            GameManager.instance.play.has=false;
             anim.SetBool("collided_with_star", true);
             GameManager.instance.updateAnimation();
             

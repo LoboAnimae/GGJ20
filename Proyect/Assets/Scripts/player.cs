@@ -18,9 +18,15 @@ public class player  : MonoBehaviour
     public GameObject hitbox;
     public bool death = false;
 
+    private int counter;
+
+    public GameObject gameOverp;
+
     // Start is called before the first frame update
     void Start()
     {
+        counter = 1;
+        gameOverp.SetActive(false);
     for (int i = 0; i < 7; i++)
     {
         Instantiate(star, new Vector3(Random.Range(-15, 190), Random.Range(-9,80), 0), Quaternion.identity);
@@ -93,6 +99,18 @@ public class player  : MonoBehaviour
             animator.SetBool("has_star", has);
             Destroy(other.collider.gameObject, 0.0f);
             numberStars++;
+        }
+
+
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "BH") {
+            counter -= 1;
+            if(counter == 0) {
+                death = true;
+                gameOverp.SetActive(true);
+            }
         }
     }
 }
