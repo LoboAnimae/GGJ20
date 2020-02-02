@@ -12,11 +12,34 @@ public class player  : MonoBehaviour
     public int direction = 0;
     public bool has = false;
 
+<<<<<<< HEAD
+=======
+    public GameObject star;
+    public GameObject hitbox;
+>>>>>>> 5fdfa6441e9373277a72b5c4e9e7504b187f11d2
     public bool death = false;
 
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< HEAD
+=======
+    rb = GetComponent<Rigidbody2D>();
+    rb.velocity = new Vector2(0.0f, 0.0f);  
+    for (int i = 0; i < 7; i++)
+    {
+        Instantiate(star, new Vector3(Random.Range(-15, 190), Random.Range(-9,80), 0), Quaternion.identity);
+        Debug.Log("Instantiated Star");
+        
+    }
+    Instantiate(hitbox, new Vector3(58, 61, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(72, 62, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(80, 57, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(90, 51, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(91, 42, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(107, 39, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(111, 49, -24), Quaternion.identity);
+>>>>>>> 5fdfa6441e9373277a72b5c4e9e7504b187f11d2
         healtPlayer = FindObjectOfType<HealtPlayer>();
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0.0f, 0.0f);  
@@ -28,6 +51,7 @@ public class player  : MonoBehaviour
         if(healtPlayer.playerHealth <= 0){
             death = true;
             animator.SetBool("Death", death);
+            wait();
             Destroy(gameObject);
 
         }
@@ -72,8 +96,13 @@ public class player  : MonoBehaviour
             has = false;
             animator.SetBool("has_star", has);
         }
+
         
         
         
+    }
+
+    IEnumerator wait(){
+        yield return new WaitForSeconds(1.7f);
     }
 }
