@@ -11,13 +11,15 @@ public class GameManager : MonoBehaviour
     public CinemachineVirtualCamera vc;
     public HealtPlayer hc;
     public player play;
-    public player catcher;
+    
 
     public camera cam;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        instance = this;
+        if(instance == null) {
+            instance = this;
+        }
     }
 
     // Update is called once per frame
@@ -26,8 +28,8 @@ public class GameManager : MonoBehaviour
         
     }
     public void updateAnimation(){
-        catcher.rye.has = false;
-        catcher.rye.animator.SetBool("has_star", false);
+        play.has = false;
+        play.animator.SetBool("has_star", false);
         Debug.Log("Has is " + play.has);
         Debug.Log("Animator is " + false);
     }

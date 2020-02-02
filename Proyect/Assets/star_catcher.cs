@@ -9,6 +9,7 @@ public class star_catcher : MonoBehaviour
     public Animator anim;
     public CircleCollider2D cc;
     private CircleCollider2D circleCollider;
+    public player pp;
     
     void Start()
     {
@@ -41,7 +42,7 @@ public class star_catcher : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log(other.gameObject.tag + " has collided with" + gameObject.tag);
-        if(other.gameObject.tag == "Player"){
+        if(other.gameObject.tag == "Player" /*&& (pp.has == true)*/) {
             
             Instantiate(star_completed, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity);
             //Destroy(gameObject);
