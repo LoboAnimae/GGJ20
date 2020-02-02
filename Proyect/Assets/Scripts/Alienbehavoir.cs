@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlienBehaviour : MonoBehaviour
+public class Alienbehavoir : MonoBehaviour
 {
     [SerializeField]
     private GameObject center;
@@ -14,7 +14,7 @@ public class AlienBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 150f;
+        speed = 350f;
          rb = player.GetComponent<Rigidbody2D>();
     }
 
@@ -37,13 +37,13 @@ public class AlienBehaviour : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag=="Player"){
-            speed = 300f;
+            speed = 550f;
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if(other.tag=="Player"){
-            speed = 150f;
+            speed = 350f;
         }
     }
 }
