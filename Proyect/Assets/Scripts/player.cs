@@ -19,6 +19,7 @@ public class player  : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     rb = GetComponent<Rigidbody2D>();
     rb.velocity = new Vector2(0.0f, 0.0f);  
     for (int i = 0; i < 7; i++)
@@ -34,6 +35,7 @@ public class player  : MonoBehaviour
     Instantiate(hitbox, new Vector3(91, 42, -24), Quaternion.identity);
     Instantiate(hitbox, new Vector3(107, 39, -24), Quaternion.identity);
     Instantiate(hitbox, new Vector3(111, 49, -24), Quaternion.identity);
+
     healtPlayer = FindObjectOfType<HealtPlayer>();
     rb = GetComponent<Rigidbody2D>();
     rb.velocity = new Vector2(0.0f, 0.0f);  
@@ -81,11 +83,14 @@ public class player  : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log("Collided");
         if(other.collider.gameObject.tag == "Star" && (has == false)){
             has = true;
             animator.SetBool("has_star", has);
-            other.collider.gameObject.transform.position = new Vector3(0, 0, -11);
+            Destroy(other.collider.gameObject, 0.0f);
+        }
+        if(other.collider.gameObject.tag == "Star_obj" && (has == true)){
+            has = false;
+            animator.SetBool("has_star", has);
         }
 
         

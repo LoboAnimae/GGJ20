@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance;
-    public player play;
 
     public CinemachineVirtualCamera vc;
 
