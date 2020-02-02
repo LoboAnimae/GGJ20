@@ -13,6 +13,7 @@ public class player  : MonoBehaviour
     public bool has = false;
 
     public GameObject star;
+    public GameObject hitbox;
     public bool death = false;
 
     // Start is called before the first frame update
@@ -24,9 +25,15 @@ public class player  : MonoBehaviour
     {
         Instantiate(star, new Vector3(Random.Range(-15, 190), Random.Range(-9,80), 0), Quaternion.identity);
         Debug.Log("Instantiated Star");
+        
     }
-    
-
+    Instantiate(hitbox, new Vector3(58, 61, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(72, 62, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(80, 57, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(90, 51, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(91, 42, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(107, 39, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(111, 49, -24), Quaternion.identity);
         healtPlayer = FindObjectOfType<HealtPlayer>();
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0.0f, 0.0f);  
@@ -38,6 +45,7 @@ public class player  : MonoBehaviour
         if(healtPlayer.playerHealth <= 0){
             death = true;
             animator.SetBool("Death", death);
+            wait();
             Destroy(gameObject);
 
         }
@@ -79,8 +87,13 @@ public class player  : MonoBehaviour
             animator.SetBool("has_star", has);
             other.collider.gameObject.transform.position = new Vector3(0, 0, -11);
         }
+
         
         
         
+    }
+
+    IEnumerator wait(){
+        yield return new WaitForSeconds(1.7f);
     }
 }
