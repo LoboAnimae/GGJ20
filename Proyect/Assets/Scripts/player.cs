@@ -19,7 +19,14 @@ public class player  : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+    hitbox = GetComponent<GameObject>();
+    Instantiate(hitbox, new Vector3(58, 61, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(72, 62, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(80, 57, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(90, 51, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(91, 42, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(107, 39, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(111, 49, -24), Quaternion.identity);
     rigidbody_player = GetComponent<Rigidbody2D>();
     rigidbody_player.velocity = new Vector2(0.0f, 0.0f);  
     for (int i = 0; i < 7; i++)
@@ -28,13 +35,7 @@ public class player  : MonoBehaviour
         Debug.Log("Instantiated Star");
         
     }
-    Instantiate(hitbox, new Vector3(58, 61, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(72, 62, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(80, 57, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(90, 51, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(91, 42, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(107, 39, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(111, 49, -24), Quaternion.identity);
+    
 
     healtPlayer = FindObjectOfType<HealtPlayer>();
     rigidbody_player = GetComponent<Rigidbody2D>();
@@ -44,13 +45,15 @@ public class player  : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(healtPlayer.playerHealth <= 0){
+        /*
+        if(GameManager.instance.hc.playerHealth  < 1){
             death = true;
             animator.SetBool("Death", death);
-            //wait();
-            Destroy(gameObject);
+          
+            
 
         }
+        
         */
 
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
@@ -90,8 +93,5 @@ public class player  : MonoBehaviour
             Destroy(other.collider.gameObject, 0.0f);
         }
     }
-
-    IEnumerator wait(){
-        yield return new WaitForSeconds(1.7f);
-    }
 }
+

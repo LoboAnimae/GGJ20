@@ -15,6 +15,7 @@ public class HealtPlayer : MonoBehaviour
     void Start()
     {
         GameOver = false;
+        playerHealth = 2;
     }
 
 
