@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-public class MenuManager : MonoBehaviour
+public class MenuManager : MonoBehaviour, IPointerClickHandler
 {
 
   public static MenuManager instance;
@@ -15,6 +16,10 @@ public class MenuManager : MonoBehaviour
     if(instance == null) {
       instance = this;
     }
+  }
+
+  public void OnPointerClick(PointerEventData eventData) {
+    // OnClick code goes here
   }
 
   void Start() {
