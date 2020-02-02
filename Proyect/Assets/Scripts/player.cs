@@ -9,6 +9,7 @@ public class player  : MonoBehaviour
     public float maxSpeed = 5f;
     public float acceleration = 10f;
     public int direction = 0;
+    public bool has = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,16 @@ public class player  : MonoBehaviour
             animator.SetInteger("Direction", direction);
 
         }
+
+        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
+            direction = 4;
+            animator.SetInteger("Direction", direction);
+        }
+
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)){
+            direction = 3;
+            animator.SetInteger("Direction", direction);
+        }
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)){
             Debug.Log("A or Left arrow pressed");
             direction = 2;
@@ -39,6 +50,21 @@ public class player  : MonoBehaviour
         float vertical = Input.GetAxis("Vertical") * acceleration * Time.deltaTime;
         
         rb.AddForce(new Vector2(horizontal, vertical), ForceMode2D.Impulse);
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        Debug.Log("Collided");
+        if(other.collider.gameObject.tag == "Star" && (has = false)){
+            has = true;
+            animator.SetBool("has_star", has);
+        }
+        if(other.collider.gameObject.tag == "Star_obj" && (has = true)){
+            has = false;
+            animator.SetBool("has_star", has);
+        }
+        Destroy(other.collider.gameObject, 0.0f);
+        
         
     }
 }

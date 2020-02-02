@@ -9,7 +9,7 @@ public class camera : MonoBehaviour
     public float wOffset;
 
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
      user = FindObjectOfType<player>();
     }
@@ -19,4 +19,8 @@ public class camera : MonoBehaviour
     {
         gameObject.transform.position = new Vector3(user.transform.position.x, user.transform.position.y, -10f);
     }
+
+    public void reassign(){
+        user = FindObjectOfType<player>();
+    }*/
 }
