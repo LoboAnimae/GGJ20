@@ -22,7 +22,7 @@ public class HealtPlayer : MonoBehaviour
         {
             PlayHit();
         }
-        if(playerHealth <= 0)
+        if(playerHealth == 0)
         {
             PlayDeath();
         }
