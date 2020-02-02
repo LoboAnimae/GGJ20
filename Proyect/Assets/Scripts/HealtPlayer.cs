@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HealtPlayer : MonoBehaviour
 {
+
+
     public int playerHealth;
     public bool GameOver;
 
