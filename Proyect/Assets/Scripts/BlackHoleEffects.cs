@@ -14,6 +14,7 @@ public class BlackHoleEffects : MonoBehaviour
     public float speed;
     public bool isInside;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,14 +33,12 @@ public class BlackHoleEffects : MonoBehaviour
         Vector2 difference = (newPos - centerPos)*-1;
         difference.Normalize();
         rb.velocity =difference*speed*Time.deltaTime;
-        Debug.Log(rb.velocity);
       }
     }
 
     void OnTriggerEnter2D(Collider2D col) {
       if(col.tag=="Player"){
         isInside = true;
-        Debug.Log(rb.velocity);
       }
     }
 

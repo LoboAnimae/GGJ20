@@ -16,7 +16,7 @@ public class Init_Vel_Met : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         rb.rotation = rb.rotation + 0.1f;
     }

@@ -52,7 +52,6 @@ public class player  : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log("Collided");
         if(other.collider.gameObject.tag == "Star" && (has == false)){
             has = true;
             animator.SetBool("has_star", has);

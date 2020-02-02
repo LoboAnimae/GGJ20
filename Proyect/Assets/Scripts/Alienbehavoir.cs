@@ -27,7 +27,6 @@ public class Alienbehavoir : MonoBehaviour
         Vector2 difference = (newPos - centerPos)*-1;
         difference.Normalize();
         rb.velocity = difference*speed*Time.deltaTime;
-        Debug.Log(rb.velocity);
       
     }
 
@@ -38,13 +37,13 @@ public class Alienbehavoir : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag=="Player"){
-            speed = speedOriginal;
+            speed = speedPersuit;
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if(other.tag=="Player"){
-            speed = speedPersuit;
+            speed = speedOriginal;
         }
     }
 }
