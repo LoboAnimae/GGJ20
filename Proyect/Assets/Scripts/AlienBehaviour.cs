@@ -14,7 +14,7 @@ public class AlienBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 80f;
+        speed = 150f;
          rb = player.GetComponent<Rigidbody2D>();
     }
 
@@ -25,7 +25,7 @@ public class AlienBehaviour : MonoBehaviour
         Vector2 newPos = player.transform.position;
         Vector2 difference = (newPos - centerPos)*-1;
         difference.Normalize();
-        rb.velocity =difference*speed*Time.deltaTime;
+        rb.velocity = difference*speed*Time.deltaTime;
         Debug.Log(rb.velocity);
       
     }
@@ -37,13 +37,13 @@ public class AlienBehaviour : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag=="Player"){
-            speed = 200f;
+            speed = 300f;
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if(other.tag=="Player"){
-            speed = 80f;
+            speed = 150f;
         }
     }
 }

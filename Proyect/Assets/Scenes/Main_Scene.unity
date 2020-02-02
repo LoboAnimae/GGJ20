@@ -4780,8 +4780,8 @@ GameObject:
   - component: {fileID: 1280189962}
   - component: {fileID: 1280189961}
   - component: {fileID: 1280189964}
-  - component: {fileID: 1280189963}
   - component: {fileID: 1280189965}
+  - component: {fileID: 1280189963}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Untagged
@@ -4877,7 +4877,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280189960}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
