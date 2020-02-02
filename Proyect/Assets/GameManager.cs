@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public CinemachineVirtualCamera vc;
+    public player play;
 
     public camera cam;
     // Start is called before the first frame update

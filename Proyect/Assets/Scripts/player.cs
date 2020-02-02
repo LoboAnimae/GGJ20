@@ -6,8 +6,8 @@ public class player  : MonoBehaviour
 {
     public HealtPlayer healtPlayer;
     public Animator animator;  
-    public Rigidbody2D rb;
-    public float maxSpeed = 5f;
+    public Rigidbody2D rigidbody_player;
+    public float maxSpeed = 10f;
     public float acceleration = 10f;
     public int direction = 0;
     public bool has = false;
@@ -20,8 +20,8 @@ public class player  : MonoBehaviour
     void Start()
     {
 
-    rb = GetComponent<Rigidbody2D>();
-    rb.velocity = new Vector2(0.0f, 0.0f);  
+    rigidbody_player = GetComponent<Rigidbody2D>();
+    rigidbody_player.velocity = new Vector2(0.0f, 0.0f);  
     for (int i = 0; i < 7; i++)
     {
         Instantiate(star, new Vector3(Random.Range(-15, 190), Random.Range(-9,80), 0), Quaternion.identity);
@@ -37,20 +37,21 @@ public class player  : MonoBehaviour
     Instantiate(hitbox, new Vector3(111, 49, -24), Quaternion.identity);
 
     healtPlayer = FindObjectOfType<HealtPlayer>();
-    rb = GetComponent<Rigidbody2D>();
-    rb.velocity = new Vector2(0.0f, 0.0f);  
+    rigidbody_player = GetComponent<Rigidbody2D>();
+    rigidbody_player.velocity = new Vector2(0.0f, 0.0f);  
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(healtPlayer.playerHealth <= 0){
+        /*if(healtPlayer.playerHealth <= 0){
             death = true;
             animator.SetBool("Death", death);
-            wait();
+            //wait();
             Destroy(gameObject);
 
         }
+        */
 
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
             direction = 1;
@@ -71,14 +72,14 @@ public class player  : MonoBehaviour
             direction = 2;
             animator.SetInteger("Direction", direction);
         }
-        if(rb.velocity.magnitude>maxSpeed){
-            rb.velocity=rb.velocity.normalized*maxSpeed;
+        if(rigidbody_player.velocity.magnitude>maxSpeed){
+            rigidbody_player.velocity = rigidbody_player.velocity.normalized*maxSpeed;
         }
        
         float horizontal = Input.GetAxis("Horizontal") * acceleration * Time.deltaTime;
         float vertical = Input.GetAxis("Vertical") * acceleration * Time.deltaTime;
         
-        rb.AddForce(new Vector2(horizontal, vertical), ForceMode2D.Impulse);
+        rigidbody_player.AddForce(new Vector2(horizontal, vertical), ForceMode2D.Impulse);
         
     }
 
@@ -88,14 +89,6 @@ public class player  : MonoBehaviour
             animator.SetBool("has_star", has);
             Destroy(other.collider.gameObject, 0.0f);
         }
-        if(other.collider.gameObject.tag == "Star_obj" && (has == true)){
-            has = false;
-            animator.SetBool("has_star", has);
-        }
-
-        
-        
-        
     }
 
     IEnumerator wait(){

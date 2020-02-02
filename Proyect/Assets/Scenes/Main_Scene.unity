@@ -223,7 +223,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 804de1dc31296ed4fb8d51c0c173377b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -280,12 +280,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34e87a38357bb4aa3eb227574f4995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healtPlayer: {fileID: 0}
   animator: {fileID: 1258868}
-  rb: {fileID: 0}
-  maxSpeed: 10
+  rigidbody_player: {fileID: 1258864}
+  maxSpeed: 20
   acceleration: 10
   direction: 0
   has: 0
+  star: {fileID: 0}
+  hitbox: {fileID: 6256559294304044925, guid: cf87da031f9eeee47a4e90036e3bdb8b, type: 3}
+  death: 0
 --- !u!95 &1258868
 Animator:
   serializedVersion: 3
@@ -6059,6 +6063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vc: {fileID: 0}
+  play: {fileID: 0}
   cam: {fileID: 0}
 --- !u!4 &1199727453
 Transform:
