@@ -5,6 +5,7 @@ using UnityEngine;
 public class player  : MonoBehaviour
 {
     public HealtPlayer healtPlayer;
+    public player rye;
     public Animator animator;  
     public Rigidbody2D rigidbody_player;
     public float maxSpeed = 10f;

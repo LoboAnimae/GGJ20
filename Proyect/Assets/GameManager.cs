@@ -11,10 +11,11 @@ public class GameManager : MonoBehaviour
     public CinemachineVirtualCamera vc;
     public HealtPlayer hc;
     public player play;
+    public player catcher;
 
     public camera cam;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         instance = this;
     }
@@ -24,7 +25,12 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
+    public void updateAnimation(){
+        catcher.rye.has = false;
+        catcher.rye.animator.SetBool("has_star", false);
+        Debug.Log("Has is " + play.has);
+        Debug.Log("Animator is " + false);
+    }
     public void reassign(){
         //vc.Follow = FindObjectOfType<Star_animator>().transform;
         Star_animator a = FindObjectOfType<Star_animator>();

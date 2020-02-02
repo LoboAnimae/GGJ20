@@ -47,8 +47,8 @@ public class star_catcher : MonoBehaviour
             //Destroy(gameObject);
             cc.enabled = false;
             anim.SetBool("collided_with_star", true);
-            GameManager.instance.play.animator.SetBool("has_star", false);
-            GameManager.instance.play.has = false;
+            GameManager.instance.updateAnimation();
+            
         }
     }
 }
