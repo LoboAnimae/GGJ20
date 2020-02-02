@@ -13,6 +13,7 @@ public class player  : MonoBehaviour
     public bool has = false;
 
     public GameObject star;
+    private int numberStars = 0;
     public GameObject hitbox;
     public bool death = false;
 
@@ -20,13 +21,13 @@ public class player  : MonoBehaviour
     void Start()
     {
     hitbox = GetComponent<GameObject>();
-    Instantiate(hitbox, new Vector3(58, 61, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(72, 62, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(80, 57, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(90, 51, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(91, 42, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(107, 39, -24), Quaternion.identity);
-    Instantiate(hitbox, new Vector3(111, 49, -24), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(58, 61, 0), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(72, 62, 0), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(80, 57, 0), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(90, 51, 0), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(91, 42, 0), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(107, 39, 0), Quaternion.identity);
+    Instantiate(hitbox, new Vector3(111, 49, 0), Quaternion.identity);
     rigidbody_player = GetComponent<Rigidbody2D>();
     rigidbody_player.velocity = new Vector2(0.0f, 0.0f);  
     for (int i = 0; i < 7; i++)
@@ -91,6 +92,7 @@ public class player  : MonoBehaviour
             has = true;
             animator.SetBool("has_star", has);
             Destroy(other.collider.gameObject, 0.0f);
+            numberStars++;
         }
     }
 }
