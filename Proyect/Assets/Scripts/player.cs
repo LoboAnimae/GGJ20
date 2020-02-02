@@ -38,7 +38,6 @@ public class player  : MonoBehaviour
         if(healtPlayer.playerHealth <= 0){
             death = true;
             animator.SetBool("Death", death);
-            wait();
             Destroy(gameObject);
 
         }
@@ -83,9 +82,5 @@ public class player  : MonoBehaviour
         
         
         
-    }
-
-    IEnumerator wait(){
-        yield return new WaitForSeconds(1.7f);
     }
 }
