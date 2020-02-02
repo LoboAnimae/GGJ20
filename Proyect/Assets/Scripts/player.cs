@@ -34,9 +34,9 @@ public class player  : MonoBehaviour
     Instantiate(hitbox, new Vector3(91, 42, -24), Quaternion.identity);
     Instantiate(hitbox, new Vector3(107, 39, -24), Quaternion.identity);
     Instantiate(hitbox, new Vector3(111, 49, -24), Quaternion.identity);
-        healtPlayer = FindObjectOfType<HealtPlayer>();
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(0.0f, 0.0f);  
+    healtPlayer = FindObjectOfType<HealtPlayer>();
+    rb = GetComponent<Rigidbody2D>();
+    rb.velocity = new Vector2(0.0f, 0.0f);  
     }
 
     // Update is called once per frame
