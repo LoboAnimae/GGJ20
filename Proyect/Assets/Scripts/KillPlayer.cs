@@ -5,6 +5,7 @@ using UnityEngine;
 public class KillPlayer : MonoBehaviour
 {
     public HealtPlayer instance;
+    public int golpe;
   
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,7 @@ public class KillPlayer : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            instance.playerHealth--;
-            Debug.Log(instance.playerHealth);
+            instance.playerHealth -= golpe;
             instance.Vergazo();
         }
     }
