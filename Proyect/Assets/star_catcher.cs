@@ -6,7 +6,6 @@ public class star_catcher : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject star_completed;
-
     public Animator anim;
     public CircleCollider2D cc;
     private CircleCollider2D circleCollider;

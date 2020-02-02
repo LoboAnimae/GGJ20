@@ -20,7 +20,12 @@ public class player  : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    hitbox = GetComponent<GameObject>();
+    for (int i = 0; i < 7; i++)
+    {
+        Instantiate(star, new Vector3(Random.Range(-15, 190), Random.Range(-9,80), 0), Quaternion.identity);
+        Debug.Log("Instantiated Star");
+        }
+    
     Instantiate(hitbox, new Vector3(58, 61, 0), Quaternion.identity);
     Instantiate(hitbox, new Vector3(72, 62, 0), Quaternion.identity);
     Instantiate(hitbox, new Vector3(80, 57, 0), Quaternion.identity);
@@ -30,15 +35,9 @@ public class player  : MonoBehaviour
     Instantiate(hitbox, new Vector3(111, 49, 0), Quaternion.identity);
     rigidbody_player = GetComponent<Rigidbody2D>();
     rigidbody_player.velocity = new Vector2(0.0f, 0.0f);  
-    for (int i = 0; i < 7; i++)
-    {
-        Instantiate(star, new Vector3(Random.Range(-15, 190), Random.Range(-9,80), 0), Quaternion.identity);
-        Debug.Log("Instantiated Star");
-        
-    }
-    
+  
 
-    healtPlayer = FindObjectOfType<HealtPlayer>();
+   // healtPlayer = FindObjectOfType<HealtPlayer>();
     rigidbody_player = GetComponent<Rigidbody2D>();
     rigidbody_player.velocity = new Vector2(0.0f, 0.0f);  
     }
