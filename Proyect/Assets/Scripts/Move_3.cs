@@ -30,7 +30,7 @@ public class Move_3 : MonoBehaviour
         }
 
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(simbolo * 25, simbolo2 * 25);
+        rb.velocity = new Vector2(simbolo * 15, simbolo2 * 15);
     }
 
     // Update is called once per frame

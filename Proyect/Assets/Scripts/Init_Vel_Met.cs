@@ -19,6 +19,5 @@ public class Init_Vel_Met : MonoBehaviour
     void Update()
     {
         rb.rotation = rb.rotation + 0.01f;
-        Debug.Log(rb.rotation + "current value");
     }
 }

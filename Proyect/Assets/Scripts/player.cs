@@ -22,7 +22,6 @@ public class player  : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
-            Debug.Log("D or Right Arrow Pressed");
             direction = 1;
             animator.SetInteger("Direction", direction);
 
@@ -38,7 +37,6 @@ public class player  : MonoBehaviour
             animator.SetInteger("Direction", direction);
         }
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)){
-            Debug.Log("A or Left arrow pressed");
             direction = 2;
             animator.SetInteger("Direction", direction);
         }
@@ -56,13 +54,11 @@ public class player  : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         Debug.Log("Collided");
         if(other.collider.gameObject.tag == "Star" && (has == false)){
-            Debug.Log("First true");
             has = true;
             animator.SetBool("has_star", has);
             Destroy(other.collider.gameObject, 0.0f);
         }
         if(other.collider.gameObject.tag == "Star_obj" && (has == true)){
-            Debug.Log("Second false");
             has = false;
             animator.SetBool("has_star", has);
         }

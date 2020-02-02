@@ -11,7 +11,7 @@ public class BlackHoleEffects : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 centerPos;
     public float speed;
-    private bool isInside;
+    public bool isInside;
 
     // Start is called before the first frame update
     void Start()
