@@ -11,22 +11,22 @@ public class Alienbehavoir : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 centerPos;
     public float speed;
-    public float speedOriginal;
-    public float speedPersuit;
     // Start is called before the first frame update
     void Start()
     {
+        speed = 350f;
          rb = player.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         centerPos = center.transform.position;
         Vector2 newPos = player.transform.position;
         Vector2 difference = (newPos - centerPos)*-1;
         difference.Normalize();
         rb.velocity = difference*speed*Time.deltaTime;
+        //Debug.Log(rb.velocity);
       
     }
 
@@ -37,13 +37,13 @@ public class Alienbehavoir : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag=="Player"){
-            speed = speedPersuit;
+            speed = 550f;
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if(other.tag=="Player"){
-            speed = speedOriginal;
+            speed = 350f;
         }
     }
 }
