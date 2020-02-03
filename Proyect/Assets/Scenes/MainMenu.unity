@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662e2b371a287d649bf0cbe8d018bbfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuPanel: {fileID: 0}
+  MenuPanel: {fileID: 928679596}
 --- !u!82 &459897002
 AudioSource:
   m_ObjectHideFlags: 0
@@ -635,7 +635,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928679596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 0.077732, y: 0.077732, z: 0.077732}
   m_Children:
   - {fileID: 1690333752}
@@ -1239,8 +1239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.895}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -497.7, y: -266.2}
-  m_SizeDelta: {x: -1817.3, y: -927.6}
+  m_AnchoredPosition: {x: -522.7, y: -339.2}
+  m_SizeDelta: {x: -1817.3, y: -1036.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1711551018
 MonoBehaviour:

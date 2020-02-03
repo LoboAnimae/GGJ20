@@ -29,7 +29,7 @@ public class MenuManager : MonoBehaviour, IPointerClickHandler
   }
 
   public void playSelected() {
-    SceneManager.LoadScene("Main_Scene");
+    SceneManager.LoadScene("Cutscene1");
   }
 
   public void quitSelected() {
